@@ -3,17 +3,17 @@
                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:local="clr-namespace:Axen.Minecraft.Launcher"
                      xmlns:view="clr-namespace:Axen.Minecraft.Launcher.Views"
                      xmlns:mdex="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
-                     Title="{Binding Path=Width,RelativeSource={RelativeSource Self}}"
-                     mc:Ignorable="d"
-                     Height="450" Width="800">
+                     mc:Ignorable="d" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                     Title="Axen.Minecraft.Launcher | Build on .NetCore 3.1 | Windows10 Pro ver+2004 build+19041.572" Height="450" Width="800">
     <TabControl TabStripPlacement="Left">
         <TabItem Header="首页">
             <view:HomeControlView />
         </TabItem>
-        <TabItem Header="配置" />
-        <TabItem Header="选项" />
-        <TabItem Header="下载" />
+        <TabItem Header="配置"></TabItem>
+        <TabItem Header="选项"></TabItem>
+        <TabItem Header="下载"></TabItem>
     </TabControl>
 </mdex:MaterialWindow>
