@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Axen.Minecraft.Launcher.Utils.DataType
+namespace Axen.Minecraft.Launcher.Utils.UIType
 {
     public class ViewModel : INotifyPropertyChanged
     {

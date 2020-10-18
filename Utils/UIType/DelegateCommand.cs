@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Axen.Minecraft.Launcher.Utils.DataType
+namespace Axen.Minecraft.Launcher.Utils.UIType
 {
     public class DelegateCommand : ICommand
     {

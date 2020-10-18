@@ -1,6 +1,5 @@
-﻿using System.Windows;
-using System.Windows.Input;
-using Axen.Minecraft.Launcher.Utils.DataType;
+﻿using System.Collections.ObjectModel;
+using Axen.Minecraft.Launcher.Utils.UIType;
 
 namespace Axen.Minecraft.Launcher.ViewModels
 {
@@ -8,14 +7,10 @@ namespace Axen.Minecraft.Launcher.ViewModels
     {
         public HomeControlViewModel()
         {
-            TestCommand = new DelegateCommand(ShowTest, null);
+            ConfigsList = new ObservableCollection<string>();
+            for (var i = 0; i < 20; i++) ConfigsList.Add($"TESTTTTTA:{i}");
         }
 
-        public ICommand TestCommand { get; }
-
-        private void ShowTest(object o)
-        {
-            MessageBox.Show(o.ToString());
-        }
+        public ObservableCollection<string> ConfigsList { get; set; }
     }
 }

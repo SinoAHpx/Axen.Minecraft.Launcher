@@ -1,7 +1,7 @@
 ﻿using System.Windows.Controls;
 using Axen.Minecraft.Launcher.ViewModels;
 
-namespace Axen.Minecraft.Launcher.Views
+namespace Axen.Minecraft.Launcher.Views.Home
 {
     /// <summary>
     ///     HomeControlView.xaml 的交互逻辑
