@@ -1,0 +1,19 @@
+﻿<mdex:MaterialWindow x:Class="Axen.Minecraft.Launcher.MainWindow"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:view="clr-namespace:Axen.Minecraft.Launcher.Views"
+                     xmlns:mdex="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
+                     Title="{Binding Path=Width,RelativeSource={RelativeSource Self}}"
+                     mc:Ignorable="d"
+                     Height="450" Width="800">
+    <TabControl TabStripPlacement="Left">
+        <TabItem Header="首页">
+            <view:HomeControlView />
+        </TabItem>
+        <TabItem Header="配置" />
+        <TabItem Header="选项" />
+        <TabItem Header="下载" />
+    </TabControl>
+</mdex:MaterialWindow>
