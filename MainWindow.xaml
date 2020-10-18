@@ -4,14 +4,13 @@
                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                      xmlns:local="clr-namespace:Axen.Minecraft.Launcher" FontFamily="Microsoft YaHei"
-                     xmlns:view="clr-namespace:Axen.Minecraft.Launcher.Views"
+                     xmlns:view="clr-namespace:Axen.Minecraft.Launcher.Views.Home"
                      xmlns:mdex="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
                      mc:Ignorable="d" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-                     xmlns:home="clr-namespace:Axen.Minecraft.Launcher.Views.Home"
                      Title="Axen.Minecraft.Launcher | Build on .NetCore 3.1 | Windows10 Pro ver+2004 build+19041.572" Height="550" Width="920">
     <TabControl TabStripPlacement="Left">
         <TabItem Header="首页">
-            <home:HomeControlView />
+            <view:HomeControlView />
         </TabItem>
         <TabItem Header="配置"></TabItem>
         <TabItem Header="选项"></TabItem>
