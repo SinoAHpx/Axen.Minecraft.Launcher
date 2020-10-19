@@ -1,4 +1,6 @@
-﻿namespace Axen.Minecraft.Launcher
+﻿using MaterialDesignThemes.Wpf;
+
+namespace Axen.Minecraft.Launcher
 {
     /// <summary>
     ///     Interaction logic for MainWindow.xaml
@@ -9,5 +11,7 @@
         {
             InitializeComponent();
         }
+
+        public DialogHost DialogHost => DialogHostMain;
     }
 }

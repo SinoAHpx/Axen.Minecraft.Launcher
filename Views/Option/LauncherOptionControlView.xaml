@@ -4,9 +4,73 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Axen.Minecraft.Launcher.Views.Option"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+             mc:Ignorable="d" FontSize="14" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:mdex="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions" 
+
+             d:DesignHeight="1000" d:DesignWidth="800">
+    <ScrollViewer>
+        <StackPanel>
+            <StackPanel.Resources>
+                <Style TargetType="GroupBox" BasedOn="{StaticResource MaterialDesignCardGroupBox}">
+                    <Setter Property="Margin" Value="10"/>
+                </Style>
+                <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                    <Setter Property="Foreground" Value="{StaticResource PrimaryHueMidBrush}"/>
+                </Style>
+            </StackPanel.Resources>
+            <GroupBox Header="偏好设置">
+                <StackPanel>
+                    <TextBlock Text="在游戏启动后"/>
+                    <ComboBox SelectedIndex="1">
+                        <ComboBoxItem Content="保持启动器运行"/>
+                        <ComboBoxItem Content="最小化启动器"/>
+                        <ComboBoxItem Content="关闭启动器"/>
+                    </ComboBox>
+                    <CheckBox Foreground="{StaticResource PrimaryHueMidBrush}" Content="输出日志" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+
+                    <TextBlock Text="开机时启动" Margin="0,5,0,0"/>
+                    <ComboBox SelectedIndex="2">
+                        <ComboBoxItem Content="启动并最小化"/>
+                        <ComboBoxItem Content="启动并保持运行"/>
+                        <ComboBoxItem Content="不启动"/>
+                    </ComboBox>
+
+                    <TextBlock Text="显示托盘图标" Margin="0,5,0,0"/>
+                    <ComboBox SelectedIndex="2">
+                        <ComboBoxItem Content="始终显示"/>
+                        <ComboBoxItem Content="最小化时显示"/>
+                        <ComboBoxItem Content="从不显示"/>
+                    </ComboBox>
+
+                    <TextBlock Text="下载源" Margin="0,5,0,0"/>
+                    <ComboBox SelectedIndex="0">
+                        <ComboBoxItem Content="官方源"/>
+                        <ComboBoxItem Content="BMCLAPI源"/>
+                        <ComboBoxItem Content="MCBBS源"/>
+                    </ComboBox>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="主题设置">
+                <StackPanel>
+                    <TextBlock Text="启动器背景图片"/>
+                    <mdex:TextBoxOpenFile materialDesign:HintAssist.Hint="背景图片地址，支持路径和Url" >
+                        <mdex:TextBoxOpenFile.DialogArgs>
+                            <mdex:OpenFileDialogArguments Width="730" Height="430" Filters="图片|*.jpg;*.png;*.bmp;*.gif|所有文件|*.*"/>
+                        </mdex:TextBoxOpenFile.DialogArgs>
+                    </mdex:TextBoxOpenFile>
+
+                    <TextBlock Text="颜色主题" Margin="0,5,0,0"/>
+                    <ComboBox SelectedIndex="0">
+                        <ComboBoxItem Content="紫色"/>
+                        <ComboBoxItem Content="红色"/>
+                        <ComboBoxItem Content="蓝色"/>
+                        <ComboBoxItem Content="橙色"/>
+                        <ComboBoxItem Content="绿色"/>
+                    </ComboBox>
+                    <CheckBox Foreground="{StaticResource PrimaryHueMidBrush}" Content="暗色主题" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>

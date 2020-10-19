@@ -4,9 +4,100 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Axen.Minecraft.Launcher.Views.Option"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+             xmlns:mdex="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             mc:Ignorable="d"  FontSize="14"
+             d:DesignHeight="1000" d:DesignWidth="800">
+    <ScrollViewer>
+        <ScrollViewer.Resources>
+            <convert:InverseBoolConverter x:Key="InverseBoolConverter" xmlns:convert="clr-namespace:Axen.Minecraft.Launcher.Utils.UIType"/>
+        </ScrollViewer.Resources>
+        <StackPanel>
+            <StackPanel.Resources>
+                <Style TargetType="GroupBox" BasedOn="{StaticResource MaterialDesignCardGroupBox}">
+                    <Setter Property="Margin" Value="10"/>
+                </Style>
+                <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                    <Setter Property="Foreground" Value="{StaticResource PrimaryHueMidBrush}"/>
+                </Style>
+            </StackPanel.Resources>
+            <GroupBox Header="Java设置">
+                <StackPanel>
+                    <TextBlock Text="Java路径"/>
+                    <mdex:TextBoxOpenFile materialDesign:HintAssist.Hint="Jre或Jdk的javaw.exe的路径" >
+                        <mdex:TextBoxOpenFile.DialogArgs>
+                            <mdex:OpenFileDialogArguments Width="730" Height="430" Filters="javaw.exe|javaw.exe|所有文件|*.*"/>
+                        </mdex:TextBoxOpenFile.DialogArgs>
+                    </mdex:TextBoxOpenFile>
+                    <Button HorizontalAlignment="Right" Content="自动查找" Margin="0,5,0,0" Style="{StaticResource MaterialDesignFlatButton}"/>
+
+                    <TextBlock Text="分配给Minecraft的最大内存" Margin="0,5,0,0"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="9*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Slider Name="Slider1" VerticalAlignment="Center" IsEnabled="{Binding IsChecked, ElementName=CheckBox1, Converter={StaticResource InverseBoolConverter}}"/>
+                        <TextBox Grid.Column="1"
+                                 Margin="5,0,5,0"
+                                 IsEnabled="{Binding IsChecked, ElementName=CheckBox1, Converter={StaticResource InverseBoolConverter}}"
+                                 Text="{Binding Value,ElementName=Slider1,UpdateSourceTrigger=PropertyChanged}">
+                        </TextBox>
+                    </Grid>
+
+                    <TextBlock Text="分配给Minecraft的最小内存" Margin="0,5,0,0"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="9*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Slider Name="Slider2" VerticalAlignment="Center" IsEnabled="{Binding IsChecked, ElementName=CheckBox1, Converter={StaticResource InverseBoolConverter}}"/>
+                        <TextBox Grid.Column="1"
+                                 Margin="5,0,5,0"
+                                 IsEnabled="{Binding IsChecked, ElementName=CheckBox1, Converter={StaticResource InverseBoolConverter}}"
+                                 Text="{Binding Value,ElementName=Slider2,UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <CheckBox Name="CheckBox1" Content="自动设置内存" HorizontalAlignment="Right" Margin="0,5,0,0" Foreground="{StaticResource PrimaryHueMidBrush}"/>
+
+                    <TextBlock Text="Java虚拟机参数" Margin="0,5,0,0"/>
+
+                    <TextBox materialDesign:HintAssist.Hint="jvm参数可选的，如果没有需求请不要填写">
+                        <TextBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="-noverify"/>
+                            </ContextMenu>
+                        </TextBox.ContextMenu>
+                    </TextBox>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Minecraft设置">
+                <StackPanel>
+                    <TextBlock Text="Minecraft窗口大小"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox IsEnabled="{Binding IsChecked,ElementName=CheckBox2, Converter={StaticResource InverseBoolConverter}}" Grid.Column="0" materialDesign:HintAssist.Hint="高度"/>
+                        <TextBox IsEnabled="{Binding IsChecked,ElementName=CheckBox2, Converter={StaticResource InverseBoolConverter}}" Grid.Column="1" materialDesign:HintAssist.Hint="宽度"/>
+                    </Grid>
+                    <CheckBox Name="CheckBox2" Content="全屏" HorizontalAlignment="Right" Margin="0,5,0,0" Foreground="{StaticResource PrimaryHueMidBrush}"/>
+
+                    <TextBlock Text="Minecraft窗口标题" Margin="0,5,0,0"/>
+                    <TextBox materialDesign:HintAssist.Hint="规则：%t%表示现行时间 %d%表示今日 %r%表示随机语句 %p%表示随机古诗词"/>
+
+                    <TextBlock Text="自动进入服务器" Margin="0,5,0,0"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0" materialDesign:HintAssist.Hint="地址"/>
+                        <TextBox Text="25560" Grid.Column="1" materialDesign:HintAssist.Hint="端口，默认为25560"/>
+                    </Grid>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>

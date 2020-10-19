@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Data;
-using Axen.Minecraft.Launcher.Utils.DataType;
 
 namespace Axen.Minecraft.Launcher.Utils.UIType
 {
-    [ValueConversion(typeof(ConfigsListEntity), typeof(string))]
-    public class Config2StringConverter : IValueConverter
+    [ValueConversion(typeof(bool), typeof(bool))]
+    public class InverseBoolConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (value as ConfigsListEntity)?.ConfigName;
+            return !(bool) value;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -30,7 +30,7 @@
                 <TextBlock Text="启动MINECRAFT"/>
             </StackPanel>
         </Button>
-        <materialDesign:PopupBox StaysOpen="True" Margin="10" Grid.Row="1" HorizontalAlignment="Right">
+        <materialDesign:PopupBox Margin="10" Grid.Row="1" HorizontalAlignment="Right">
             <ListBox Name="ListBox1" ItemsSource="{Binding ConfigsList}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
