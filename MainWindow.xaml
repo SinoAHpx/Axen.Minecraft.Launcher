@@ -3,22 +3,26 @@
                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                     xmlns:local="clr-namespace:Axen.Minecraft.Launcher" FontFamily="Microsoft YaHei"
+                     FontFamily="Microsoft YaHei"
                      xmlns:home="clr-namespace:Axen.Minecraft.Launcher.Views.Home"
                      xmlns:config="clr-namespace:Axen.Minecraft.Launcher.Views.Config"
+                     xmlns:option="clr-namespace:Axen.Minecraft.Launcher.Views.Option"
                      xmlns:mdex="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
                      mc:Ignorable="d" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-                     Title="Axen.Minecraft.Launcher | Build on .NetCore 3.1 | Windows10 Pro ver+2004 build+19041.572" Height="550" Width="920">
+                     Title="Axen.Minecraft.Launcher | Build on .NetCore 3.1 | Windows10 Pro ver+2004 build+19041.572"
+                     Height="550" Width="920">
     <materialDesign:DialogHost Name="DialogHostMain">
         <TabControl TabStripPlacement="Left">
             <TabItem Header="首页">
                 <home:HomeControlView x:Name="HomeControl" />
             </TabItem>
             <TabItem Header="配置">
-                <config:ConfigControlView x:Name="ConfigControl"/>
+                <config:ConfigControlView x:Name="ConfigControl" />
             </TabItem>
-            <TabItem Header="选项"></TabItem>
-            <TabItem Header="下载"></TabItem>
+            <TabItem Header="选项">
+                <option:OptionControlView x:Name="OptionControl"/>
+            </TabItem>
+            <TabItem Header="下载" />
         </TabControl>
     </materialDesign:DialogHost>
 </mdex:MaterialWindow>
