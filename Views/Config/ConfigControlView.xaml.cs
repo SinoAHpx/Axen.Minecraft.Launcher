@@ -1,26 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
+using Axen.Minecraft.Launcher.ViewModels;
 
 namespace Axen.Minecraft.Launcher.Views.Config
 {
     /// <summary>
-    /// ConfigControlView.xaml 的交互逻辑
+    ///     ConfigControlView.xaml 的交互逻辑
     /// </summary>
     public partial class ConfigControlView : UserControl
     {
         public ConfigControlView()
         {
             InitializeComponent();
+            DataContext = new ConfigControlViewModel();
         }
     }
 }

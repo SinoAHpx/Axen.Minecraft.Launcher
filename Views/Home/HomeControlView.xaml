@@ -6,10 +6,13 @@
              xmlns:local="clr-namespace:Axen.Minecraft.Launcher.Views.Home"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:mdex="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
-             mc:Ignorable="d"
+             mc:Ignorable="d" xmlns:config="clr-namespace:Axen.Minecraft.Launcher.Utils.UIType"
              FontSize="14"
              d:DesignHeight="450"
              d:DesignWidth="800">
+    <UserControl.Resources>
+        <config:Config2StringConverter x:Key="Config2StringConverter"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="5*" />
@@ -18,7 +21,7 @@
         <Button Grid.Row="1"
                 Margin="10"
                 Height="40"
-                Width="200"
+                Width="200" ToolTip="{Binding SelectedItem ,ElementName=ListBox1, Converter={StaticResource Config2StringConverter}}"
                 HorizontalAlignment="Right" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                 Style="{StaticResource MaterialDesignFlatButton}"
                 Cursor="Hand">
@@ -28,7 +31,17 @@
             </StackPanel>
         </Button>
         <materialDesign:PopupBox StaysOpen="True" Margin="10" Grid.Row="1" HorizontalAlignment="Right">
-            <ListBox ItemsSource="{Binding ConfigsList}"/>
+            <ListBox Name="ListBox1" ItemsSource="{Binding ConfigsList}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <Run Text="{Binding ConfigName}"/>
+                            <Run Text=" - "/>
+                            <Run Text="{Binding ConfigComment}"/>
+                        </TextBlock>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </materialDesign:PopupBox>
     </Grid>
 </UserControl>

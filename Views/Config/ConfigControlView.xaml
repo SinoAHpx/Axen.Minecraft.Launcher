@@ -4,9 +4,62 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Axen.Minecraft.Launcher.Views.Config"
-             mc:Ignorable="d" 
+             mc:Ignorable="d" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <ListView Name="ListView1" Margin="10" ItemsSource="{Binding ConfigsList}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="配置名" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Width="400" Text="{Binding ConfigName}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Minecraft版本" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox SelectedIndex="{Binding SelectedMinecraft}" 
+                                          ItemsSource="{Binding MinecraftsList}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="备注">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Width="400" Text="{Binding ConfigComment}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="新建配置">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="Plus"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="修改此配置">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="Pen"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="删除此配置">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="Delete"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Foreground="Red"
+                              Header="删除所有配置"
+                              Command="{Binding DeleteAllConfigCommand}">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="Delete"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </ContextMenu>
+            </ListView.ContextMenu>
+        </ListView>
     </Grid>
 </UserControl>
