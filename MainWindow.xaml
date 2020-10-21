@@ -3,26 +3,40 @@
                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                     FontFamily="Microsoft YaHei"
+                     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+                     Background="{DynamicResource MaterialDesignPaper}"
+                     TextElement.FontSize="14"
+                     FontFamily="{materialDesign:MaterialDesignFont}"
                      xmlns:home="clr-namespace:Axen.Minecraft.Launcher.Views.Home"
                      xmlns:config="clr-namespace:Axen.Minecraft.Launcher.Views.Config"
                      xmlns:option="clr-namespace:Axen.Minecraft.Launcher.Views.Option"
                      xmlns:mdex="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
                      mc:Ignorable="d" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                     xmlns:download="clr-namespace:Axen.Minecraft.Launcher.Views.Download"
                      Title="Axen.Minecraft.Launcher | Build on .NetCore 3.1 | Windows10 Pro ver+2004 build+19041.572"
                      Height="550" Width="920">
     <materialDesign:DialogHost Name="DialogHostMain">
         <TabControl TabStripPlacement="Left">
             <TabItem Header="首页">
-                <home:HomeControlView x:Name="HomeControl" />
+                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
+                    <home:HomeControlView x:Name="HomeControl" />
+                </materialDesign:TransitioningContent>
             </TabItem>
             <TabItem Header="配置">
-                <config:ConfigControlView x:Name="ConfigControl" />
+                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
+                    <config:ConfigControlView x:Name="ConfigControl" />
+                </materialDesign:TransitioningContent>
             </TabItem>
             <TabItem Header="选项">
-                <option:OptionControlView x:Name="OptionControl"/>
+                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
+                    <option:OptionControlView x:Name="OptionControl"/>
+                </materialDesign:TransitioningContent>
             </TabItem>
-            <TabItem Header="下载" />
+            <TabItem Header="下载">
+                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
+                    <download:DownloadControlView x:Name="DownloadControl"/>
+                </materialDesign:TransitioningContent>
+            </TabItem>
         </TabControl>
     </materialDesign:DialogHost>
 </mdex:MaterialWindow>

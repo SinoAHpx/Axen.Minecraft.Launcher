@@ -3,8 +3,8 @@ using Axen.Minecraft.Launcher.Utils.DataType;
 
 namespace Axen.Minecraft.Launcher.Models
 {
-    public static class ConfigModel
+    public static class CarouselModel
     {
-        public static ObservableCollection<ConfigItemEntity> ConfigsList { get; set; }
+        public static ObservableCollection<CarouselItemEntity> CarouselItems { get; set; }
     }
 }

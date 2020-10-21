@@ -48,6 +48,13 @@
                         <ComboBoxItem Content="BMCLAPI源"/>
                         <ComboBoxItem Content="MCBBS源"/>
                     </ComboBox>
+
+                    <TextBlock Text="Mcbbs快讯" Margin="0,5,0,0"/>
+                    <ComboBox SelectedIndex="1">
+                        <ComboBoxItem Content="不显示"/>
+                        <ComboBoxItem Content="显示在下载页面"/>
+                        <ComboBoxItem Content="显示在首页"/>
+                    </ComboBox>
                 </StackPanel>
             </GroupBox>
 

@@ -11,7 +11,7 @@ namespace Axen.Minecraft.Launcher.ViewModels
     {
         public ConfigControlViewModel()
         {
-            ConfigsList = new ObservableCollection<ConfigsListEntity>();
+            ConfigsList = new ObservableCollection<ConfigItemEntity>();
 
             var minecrafts = new ObservableCollection<string>
             {
@@ -32,7 +32,7 @@ namespace Axen.Minecraft.Launcher.ViewModels
             };
 
             for (var i = 0; i < 10; i++)
-                ConfigsList.Add(new ConfigsListEntity
+                ConfigsList.Add(new ConfigItemEntity
                 {
                     ConfigComment = $"备注注释{i}",
                     ConfigName = $"Config Name {i}",
@@ -43,7 +43,7 @@ namespace Axen.Minecraft.Launcher.ViewModels
             RegisterCommands();
         }
 
-        public ObservableCollection<ConfigsListEntity> ConfigsList
+        public ObservableCollection<ConfigItemEntity> ConfigsList
         {
             get => ConfigModel.ConfigsList;
             set => ConfigModel.ConfigsList = value;

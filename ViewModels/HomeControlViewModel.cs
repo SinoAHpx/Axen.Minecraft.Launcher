@@ -7,6 +7,6 @@ namespace Axen.Minecraft.Launcher.ViewModels
 {
     public class HomeControlViewModel : ViewModel
     {
-        public ObservableCollection<ConfigsListEntity> ConfigsList => ConfigModel.ConfigsList;
+        public ObservableCollection<ConfigItemEntity> ConfigsList => ConfigModel.ConfigsList;
     }
 }

@@ -5,12 +5,12 @@ using Axen.Minecraft.Launcher.Utils.DataType;
 
 namespace Axen.Minecraft.Launcher.Utils.UIType
 {
-    [ValueConversion(typeof(ConfigsListEntity), typeof(string))]
+    [ValueConversion(typeof(ConfigItemEntity), typeof(string))]
     public class Config2StringConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (value as ConfigsListEntity)?.ConfigName;
+            return (value as ConfigItemEntity)?.ConfigName;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

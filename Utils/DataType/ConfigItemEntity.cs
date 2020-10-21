@@ -2,7 +2,7 @@
 
 namespace Axen.Minecraft.Launcher.Utils.DataType
 {
-    public class ConfigsListEntity
+    public class ConfigItemEntity
     {
         public string ConfigName { get; set; }
         public int SelectedMinecraft { get; set; }
