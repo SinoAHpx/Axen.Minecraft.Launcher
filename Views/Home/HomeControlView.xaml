@@ -44,9 +44,19 @@
             </ListBox>
         </materialDesign:PopupBox>
 
-        <materialDesign:Chip Grid.Row="1" Margin="10" 
-                             Icon="{materialDesign:PackIcon Minecraft}" Name="Chip1"
-                             Content="{Binding SelectedItem ,ElementName=ListBox2, Converter={StaticResource Config2StringConverter}}"/>
+        <materialDesign:Chip Grid.Row="1"
+                             Margin="10"
+                             Icon="{materialDesign:PackIcon Minecraft}"
+                             Name="Chip1"
+                             Content="{Binding SelectedItem ,ElementName=ListBox2, Converter={StaticResource Config2StringConverter}}">
+            <materialDesign:Chip.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="添加一个账号"/>
+                    <MenuItem Header="删除当前账号"/>
+                    <MenuItem Header="账号管理器" Command="{Binding OpenAccountManagerCommand}"/>
+                </ContextMenu>
+            </materialDesign:Chip.ContextMenu>
+        </materialDesign:Chip>
 
         <materialDesign:PopupBox Visibility="Hidden" Grid.Row="1" IsPopupOpen="{Binding IsFocused, ElementName=Chip1}">
             <ListBox Name="ListBox2" ItemsSource="{Binding ConfigsList}">

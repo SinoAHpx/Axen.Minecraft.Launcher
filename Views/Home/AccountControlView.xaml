@@ -4,17 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Axen.Minecraft.Launcher.Views.Home"
-             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" Height="460" Width="800"
              d:DesignHeight="450" d:DesignWidth="800">
-    <ListBox Style="{StaticResource MaterialDesignCardsListBox}">
+    <ListBox Margin="10" ItemsSource="{Binding AccountsList}">
         <ListBox.ItemTemplate>
             <DataTemplate>
                 <StackPanel Orientation="Horizontal">
-                    <Ellipse Margin="10">
+                    <Ellipse Width="32" Height="32" Margin="10">
                         <Ellipse.Fill>
-                            <ImageBrush ImageSource="C:\Users\ahpx\Downloads\pexels-craig-adderley-1563355.jpg" />
+                            <ImageBrush ImageSource="{Binding Avatar}" />
                         </Ellipse.Fill>
                     </Ellipse>
+
+                    <materialDesign:Chip Content="{Binding Name}" Margin="0,0,10,0" />
+                    <materialDesign:Chip Content="{Binding Uuid}" Margin="0,0,10,0" />
+                    <materialDesign:Chip Content="{Binding AccessToken}" Margin="0,0,10,0" />
                 </StackPanel>
             </DataTemplate>
         </ListBox.ItemTemplate>

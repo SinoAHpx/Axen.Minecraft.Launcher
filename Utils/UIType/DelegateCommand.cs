@@ -8,7 +8,7 @@ namespace Axen.Minecraft.Launcher.Utils.UIType
         private readonly Predicate<object> _canExecuteHandler;
         private readonly Action<object> _executeHandler;
 
-        public DelegateCommand(Action<object> executeHandler, Predicate<object> canExecuteHandler)
+        public DelegateCommand(Action<object> executeHandler, Predicate<object> canExecuteHandler = null)
         {
             _executeHandler = executeHandler;
             _canExecuteHandler = canExecuteHandler;
