@@ -13,7 +13,7 @@
                      xmlns:mdex="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
                      mc:Ignorable="d" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
                      xmlns:download="clr-namespace:Axen.Minecraft.Launcher.Views.Download"
-                     Title="Axen.Minecraft.Launcher | Build on .NetCore 3.1 | Windows10 Pro ver+2004 build+19041.572"
+                     Title="Axen.Minecraft.Launcher .NetCore 3.1"
                      Height="550" Width="920">
     <materialDesign:DialogHost Name="DialogHostMain">
         <TabControl TabStripPlacement="Left">
