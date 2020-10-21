@@ -43,5 +43,9 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </materialDesign:PopupBox>
+
+        <materialDesign:Chip Grid.Row="1" Margin="10" 
+                             Icon="{materialDesign:PackIcon Minecraft}"
+                             Content="AhPxCH1n4"/>
     </Grid>
 </UserControl>

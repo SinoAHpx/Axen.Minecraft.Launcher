@@ -1,25 +1,25 @@
 ﻿<UserControl x:Class="Axen.Minecraft.Launcher.Views.Download.DownloadControlView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Axen.Minecraft.Launcher.Views.Download"
-             mc:Ignorable="d" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="900" d:DesignWidth="800">
     <ScrollViewer>
         <StackPanel>
             <StackPanel.Resources>
                 <Style TargetType="GroupBox" BasedOn="{StaticResource MaterialDesignCardGroupBox}">
-                    <Setter Property="Margin" Value="10"/>
+                    <Setter Property="Margin" Value="10" />
                 </Style>
                 <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
-                    <Setter Property="Foreground" Value="{StaticResource PrimaryHueMidBrush}"/>
+                    <Setter Property="Foreground" Value="{StaticResource PrimaryHueMidBrush}" />
                 </Style>
             </StackPanel.Resources>
 
             <GroupBox Header="Mcbbs快讯" Visibility="Collapsed">
                 <StackPanel>
-                    <local:CarouselNewsControlView Height="300"/>
+                    <local:CarouselNewsControlView Height="300" />
                 </StackPanel>
             </GroupBox>
 
@@ -28,34 +28,84 @@
                     <StackPanel Orientation="Horizontal">
                         <StackPanel.Resources>
                             <Style TargetType="CheckBox" BasedOn="{StaticResource MaterialDesignFilterChipCheckBox}">
-                                <Setter Property="Margin" Value="0,0,10,0"/>
+                                <Setter Property="Margin" Value="0,0,10,0" />
                             </Style>
                         </StackPanel.Resources>
-                        <CheckBox Name="CheckBoxVanilla" Content="正式版"/>
-                        <CheckBox Name="CheckBoxSnapshot" Content="测试版"/>
-                        <CheckBox Name="CheckBoxOld" Content="远古版"/>
-                        <CheckBox Name="CheckBoxForge" Content="Forge"/>
-                        <CheckBox Name="CheckBoxOptifine" Content="Optifine"/>
-                        <CheckBox Name="CheckBoxLiteloader" Content="Liteloader"/>
-                        <CheckBox Name="CheckBoxFabric" Content="Fabric"/>
+                        <CheckBox Name="CheckBoxVanilla" Content="正式版" IsChecked="True" />
+                        <CheckBox Name="CheckBoxSnapshot" Content="测试版" />
+                        <CheckBox Name="CheckBoxOld" Content="远古版" />
                     </StackPanel>
-                    <ListView Margin="0,10,0,0">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="版本号" DisplayMemberBinding="{Binding Version}"/>
-                                <GridViewColumn Header="类型" DisplayMemberBinding="{Binding VersionType}"/>
-                                <GridViewColumn Header="基于" DisplayMemberBinding="{Binding BasedOn}"/>
-                                <GridViewColumn Header="发布日期" DisplayMemberBinding="{Binding ReleaseDate}"/>
-                                <GridViewColumn>
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button Content="{materialDesign:PackIcon Download}" Command="{Binding Command}" Style="{StaticResource MaterialDesignIconButton}"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
+                    <DataGrid CanUserSortColumns="False" 
+                              AutoGenerateColumns="False" 
+                              CanUserReorderColumns="True" 
+                              CanUserAddRows="False" 
+                              IsReadOnly="True"
+                              CanUserResizeRows="False"
+                              SelectionUnit="FullRow"
+                              SelectionMode="Single"
+                              Height="320"
+                              ItemsSource="{Binding MinecraftsList}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="2*" Header="版本号" Binding="{Binding Version}"/>
+                            <DataGridTextColumn Width="2*" Header="类型" Binding="{Binding VersionType}"/>
+                            <DataGridTextColumn Width="3*" Header="发布日期" Binding="{Binding ReleaseDate}"/>
+                            <DataGridTextColumn Width="2*" Header="基于" Binding="{Binding BasedOn}"/>
+                            <DataGridTemplateColumn Width="6*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="{materialDesign:PackIcon Download}" 
+                                                Style="{StaticResource MaterialDesignFlatButton}"
+                                                CommandParameter="{Binding CommandParameter}"
+                                                Command="{Binding Command}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="加载器">
+                <StackPanel>
+                    <ComboBox Text="awkdhj" Margin="0,0,0,10"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <StackPanel.Resources>
+                            <Style TargetType="RadioButton" BasedOn="{StaticResource MaterialDesignChoiceChipRadioButton}">
+                                <Setter Property="Margin" Value="0,0,10,0" />
+                            </Style>
+                        </StackPanel.Resources>
+                        <RadioButton Name="CheckBoxForge" Content="Forge" />
+                        <RadioButton Name="CheckBoxOptifine" Content="Optifine" />
+                        <RadioButton Name="CheckBoxLiteloader" Content="Liteloader" />
+                        <RadioButton Name="CheckBoxFabric" Content="Fabric" />
+                    </StackPanel>
+                    <DataGrid CanUserSortColumns="False" 
+                              AutoGenerateColumns="False" 
+                              CanUserReorderColumns="True" 
+                              CanUserAddRows="False" 
+                              IsReadOnly="True"
+                              CanUserResizeRows="False"
+                              SelectionUnit="FullRow"
+                              SelectionMode="Single"
+                              Height="320"
+                              ItemsSource="{Binding MinecraftsList}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="2*" Header="版本号" Binding="{Binding Version}"/>
+                            <DataGridTextColumn Width="2*" Header="类型" Binding="{Binding VersionType}"/>
+                            <DataGridTextColumn Width="3*" Header="发布日期" Binding="{Binding ReleaseDate}"/>
+                            <DataGridTextColumn Width="2*" Header="基于" Binding="{Binding BasedOn}"/>
+                            <DataGridTemplateColumn Width="6*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="{materialDesign:PackIcon Download}" 
+                                                Style="{StaticResource MaterialDesignFlatButton}"
+                                                CommandParameter="{Binding CommandParameter}"
+                                                Command="{Binding Command}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </StackPanel>
             </GroupBox>
         </StackPanel>
