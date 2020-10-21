@@ -45,7 +45,21 @@
         </materialDesign:PopupBox>
 
         <materialDesign:Chip Grid.Row="1" Margin="10" 
-                             Icon="{materialDesign:PackIcon Minecraft}"
-                             Content="AhPxCH1n4"/>
+                             Icon="{materialDesign:PackIcon Minecraft}" Name="Chip1"
+                             Content="{Binding SelectedItem ,ElementName=ListBox2, Converter={StaticResource Config2StringConverter}}"/>
+
+        <materialDesign:PopupBox Visibility="Hidden" Grid.Row="1" IsPopupOpen="{Binding IsFocused, ElementName=Chip1}">
+            <ListBox Name="ListBox2" ItemsSource="{Binding ConfigsList}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <Run Text="{Binding ConfigName}"/>
+                            <Run Text=" - "/>
+                            <Run Text="{Binding ConfigComment}"/>
+                        </TextBlock>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </materialDesign:PopupBox>
     </Grid>
 </UserControl>
